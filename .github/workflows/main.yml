@@ -11,7 +11,10 @@ jobs:
 
   build_skim:
     runs-on: ubuntu-latest
-    container: rootproject/root:6.26.10-conda
+    container: rootproject/${{ matrix.version }}
+    strategy:
+      matrix:
+	version: ["6.26.10-conda", "latest"]
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -20,16 +23,25 @@ jobs:
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
 
-  build_skim_latest:
-    runs-on: ubuntu-latest
-    container: rootproject/root:latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v4
-      - run: |
-          COMPILER=$(root-config --cxx)
-          FLAGS=$(root-config --cflags --libs)
-          $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
+
+
+
+
+
+
+
+
+# TO USE THE LATEST VERSION OF UBUNTU/ROOT
+#  build_skim_latest:
+#    runs-on: ubuntu-latest
+#    container: rootproject/root:latest
+#    steps:
+#      - name: Check out repo
+#        uses: actions/checkout@v4
+#      - run: |
+#          COMPILER=$(root-config --cxx)
+#          FLAGS=$(root-config --cflags --libs)
+#          $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
 
 
 
