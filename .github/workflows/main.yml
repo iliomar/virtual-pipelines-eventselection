@@ -24,9 +24,9 @@ jobs:
           FLAGS=$(root-config --cflags --libs)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx $FLAGS
       - uses: actions/upload-artifact@v4
-       with:
-         name: skim${{ matrix.version }}
-         path: skim
+        with:
+          name: skim${{ matrix.version }}
+          path: skim
 
   skim:
     needs: build_skim
@@ -42,7 +42,7 @@ jobs:
         run: | 
           chmod +x ./skim
           ./skim 
-root://eospublic.cern.ch//eos/root-eos/HiggsTauTauReduced/GluGluToHToTauTau.root
+          echo root://eospublic.cern.ch//eos/root-eos/HiggsTauTauReduced/GluGluToHToTauTau.root
  
 # TO USE THE LATEST VERSION OF UBUNTU/ROOT
 #  build_skim_latest:
