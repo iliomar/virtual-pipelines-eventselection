@@ -34,7 +34,7 @@ jobs:
     container: rootproject/root: 6.26.10-conda
     steps:
       - name: checkout repository
-        uses actions/checkout@v4
+        uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           name: skim6.26.10-conda
