@@ -13,7 +13,6 @@ jobs:
     needs: greeting
     runs-on: ubuntu-latest
     container: rootproject/root:${{ matrix.version }}
-    continue-on-error: ${{ matrix.allow_failure }}
     strategy:
       matrix:
         version: ["6.26.10-conda", "latest"]
@@ -40,7 +39,9 @@ jobs:
         with:
           name: skim6.26.10-conda
       - name: skim
-        run: ./skim
+        run: 
+          chmod +x ./skim
+          ./skim
 
 # TO USE THE LATEST VERSION OF UBUNTU/ROOT
 #  build_skim_latest:
