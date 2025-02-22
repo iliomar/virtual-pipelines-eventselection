@@ -1,7 +1,7 @@
 name: Example
 
-on: pus
-h
+on: push
+
 jobs:
   greeting:
     runs-on: ubuntu-latest
