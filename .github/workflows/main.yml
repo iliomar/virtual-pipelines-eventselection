@@ -14,7 +14,7 @@ jobs:
     container: rootproject/root:${{ matrix.version }}
     strategy:
       matrix:
-	version: ["6.26.10-conda", "latest"]
+	version: [6.26.10-conda, latest]
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
