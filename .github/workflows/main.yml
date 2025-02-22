@@ -41,8 +41,8 @@ jobs:
       - name: skim
         run: 
           chmod +x ./skim
-          ./skim root://eosuser.cern.ch//eos/user/g/gstark/AwesomeWorkshopFeb2020/GluGluToHToTauTau.root skim_ggH.root 19.6 11467.0 0.1
-
+          ./skim root://eospublic.cern.ch//eos/root-eos/HiggsTauTauReduced/GluGluToHToTauTau.root
+ 
 # TO USE THE LATEST VERSION OF UBUNTU/ROOT
 #  build_skim_latest:
 #    runs-on: ubuntu-latest
