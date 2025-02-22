@@ -16,6 +16,6 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v4
       - run: |
-          FLAGS=$(root-config --cflags --libs)
           COMPILER=$(root-config --cxx)
           $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx
+          FLAGS=$(root-config --cflags --libs)
