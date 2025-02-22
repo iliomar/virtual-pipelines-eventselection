@@ -8,3 +8,10 @@ jobs:
     steps:
       - name = Print helo
       - run: echo "hello world"
+
+  build_skim:
+    runs-on: ubuntu-latest
+    step:
+      - run: |
+          COMPILER=$(root-config --cxx)
+          $COMPILER -g -O3 -Wall -Wextra -Wpedantic -o skim skim.cxx
